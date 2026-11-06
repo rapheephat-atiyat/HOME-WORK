@@ -1,5 +1,7 @@
 "use client"
 
+import { checkLogin } from "@/utils/login"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 const btn = "size-12 rounded-[10px] border-[1.5px] border-[#808080] text-center text-lg sm:size-18 sm:rounded-[15px] sm:text-2xl disabled:cursor-not-allowed disabled:bg-[#555] disabled:text-[#999] disabled:opacity-60"
@@ -39,6 +41,8 @@ export default function Page() {
   const [first, setFirst] = useState(0)
   const [second, setSecond] = useState(0)
   const [operator, setOperator] = useState("?")
+  const router = useRouter();
+  useEffect(() => checkLogin(router, "/calculator"), [router])
 
   const calculate = (a: number, b: number) => {
     let result = a

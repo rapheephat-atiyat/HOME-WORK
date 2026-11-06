@@ -1,6 +1,8 @@
 "use client"
 
+import { checkLogin } from "@/utils/login";
 import { Play } from "@tailgrids/icons";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react"
 
 const BALLS: Record<string, { label: string; image: string | null }> = {
@@ -38,6 +40,9 @@ export default function Page() {
   })
 
   const timer = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  const router = useRouter();
+  useEffect(() => checkLogin(router, "/animation"), [router])
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {

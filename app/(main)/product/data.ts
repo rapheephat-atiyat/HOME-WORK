@@ -35015,19 +35015,22 @@ let products: Products[] = [];
 
 export const fetchProdcuts = (): Promise<Products[]> => {
     return new Promise((res, rej) => {
+        if (products.length > 0) {
+            return res(products);
+        }
+
         setTimeout(() => {
-            if (Math.random() <= 0.8) {
-                if (products.length === 0) {
-                    products = photo.filter((p, i) => i < maxopt).map((p) => ({
-                        id: p.id,
-                        title: p.title,
-                        thumbnailUrl: p.thumbnailUrl,
-                        price: Math.round(Math.random() * 10000) / 100
-                    }));
-                }
-                res(products)
+            if (Math.random() <= 0.99) {
+                products = photo.filter((p, i) => i < maxopt).map((p) => ({
+                    id: p.id,
+                    title: p.title,
+                    thumbnailUrl: p.thumbnailUrl,
+                    price: Math.round(Math.random() * 10000) / 100
+                }));
+                return res(products);
+            } else {
+                return rej("connection refused");
             }
-            rej("conection refused")
         }, 1000 + Math.random() * 2000);
-    })
-}
+    });
+};
