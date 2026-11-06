@@ -88,7 +88,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </header>
             {children}
             <footer className="text-center">
-              <p className="mb-2 inline-block rounded bg-[#cfe2ff] px-3.5 py-0.75 text-[22px] font-bold max-sm:text-lg">68000639 นายรพีภัทร เอติยัติ</p>
+              <p className="mb-2 inline-block rounded bg-[#cfe2ff] px-3.5 py-0.75 text-[22px] font-bold max-sm:text-lg">68000639 นายรพีภัทร เอติยัติ LAB:002</p>
               <div className="flex justify-center">
                 <Link
                   href="https://facebook.com"
