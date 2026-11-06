@@ -1,0 +1,15 @@
+@import "../tailgrids.css";
+
+@layer base {
+  body {
+    margin: 0;
+    background: #f5f5f5;
+    color: #212529;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  button:not(:disabled), select, input[type="checkbox"] { cursor: pointer; }
+  :focus-visible { outline: 2px solid #0d6efd; outline-offset: 3px; }
+}
+
